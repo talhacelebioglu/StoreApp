@@ -1,16 +1,9 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import {createSlice} from '@reduxjs/toolkit';
 import {userLogin} from './services';
 
-// const token = AsyncStorage.getItem('token')
-//   ? AsyncStorage.getItem('token')
-//   : null;
-
-const token = null;
-
 const initialState = {
   user: null,
-  token,
+  token: null,
   authLoading: false,
   authError: null,
   authSuccess: false,
@@ -21,7 +14,6 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
     removeUser: state => {
-      AsyncStorage.removeItem('token');
       state.authLoading = false;
       state.user = null;
       state.token = null;

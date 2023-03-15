@@ -1,14 +1,9 @@
 import {createSlice} from '@reduxjs/toolkit';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import {Alert} from 'react-native';
 
 export const favoriteSlice = createSlice({
   name: 'favorites',
   initialState: {
-    // favorites: AsyncStorage.getItem('favorites')
-    //   ? JSON.parse(AsyncStorage.getItem('favorites'))
-    //   : [],
-    // redux-persist ile yapılacak
     favorites: [],
   },
   reducers: {
@@ -23,7 +18,6 @@ export const favoriteSlice = createSlice({
         state.favorites.push({...action.payload});
         Alert.alert('Product added to favorites!');
       }
-      // AsyncStorage.setItem('favorites', JSON.stringify(state.favorites));
     },
 
     removeFav: (state, action) => {
@@ -32,7 +26,6 @@ export const favoriteSlice = createSlice({
       );
       state.favorites = itemFav;
       Alert.alert('Product removed from favorites!');
-      // AsyncStorage.setItem('favorites', JSON.stringify(state.favorites));
     },
   },
 });

@@ -10,13 +10,6 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      {/* {authLoading ? (
-        <Loading />
-      ) : !userSession ? (
-        <AuthNavigator />
-      ) : (
-        <BottomTabNavigator />
-      )} */}
       {!userSession ? <AuthNavigator /> : <BottomTabNavigator />}
     </NavigationContainer>
   );
